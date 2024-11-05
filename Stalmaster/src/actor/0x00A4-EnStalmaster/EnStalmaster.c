@@ -1358,7 +1358,9 @@ void EnStalmaster_UpdateCollisions(EnStalmaster* this, PlayState* play) {
                 break;
 
             case STALMASTER_DMGEFF_PARRY:
-                EnStalmaster_SetupGuard(this, play);
+                //thanks lemontea for the report:
+                if (this->actionFunc != EnStalmaster_BlowArms)
+                    EnStalmaster_SetupGuard(this, play);
                 break;
 
             case STALMASTER_DMGEFF_SPIN:
